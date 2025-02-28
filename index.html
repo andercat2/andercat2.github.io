@@ -4,9 +4,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Мой сайт</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <h1>Дарова Полинчик!</h1>
-    <p>За кредит бесплатно не работаю</p>
+    <div style="height: 5vh;"></div>
+    <h2>↓ За кредит бесплатно не работаем ↓</h2>
+    <div style="height: 20vh;"></div>
+    <img src="image.png" alt=";)">
+    <img src="yarik2.PNG" alt=";)">
+
+    <button id="play-music">жми</button>
+
+    <audio id="bg-music" loop>
+        <source src="Lida & Серега Пират - ЧСВ.mp3" type="audio/mpeg">
+        Ваш браузер не поддерживает аудио.
+    </audio>
+
+    <script>
+        let audio = document.getElementById("bg-music");
+        let playButton = document.getElementById("play-music");
+
+        playButton.addEventListener("click", function() {
+            audio.currentTime = 13; // Начинаем с 13-й секунды
+            audio.play();
+            audio.volume = 0.3; // Громкость 50%
+            this.style.display = "none"; // Убираем кнопку после клика
+        });
+
+        // Останавливаем музыку на 21-й секунде
+        audio.addEventListener("timeupdate", function() {
+            if (audio.currentTime >= 20.5) {
+                audio.pause();
+                audio.currentTime = 18; // Сброс на начало (можно убрать, если не нужно)
+                audio.play();
+            }
+        });
+    </script>
+
+
+
+
+    
+    
 </body>
 </html>
